@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Nunito', monospace;
+  }
+}
+
+/*
+ * animations
+ */
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Conic Gradient Animation */
+.rotate {
+  animation: 6s rotate linear infinite;
+}
+
+.fadeOut {
+  animation: fadeout 500ms;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  transition: all .75s ease;
+}
+
+.fadeIn {
+  animation: fadein 500ms;
+  opacity: 1;
+  transition: all .75s ease;
+}
+
+/*
+ * header
+ */
+
+header {
+  @apply bg-white flex flex-row items-center justify-between w-full px-5 lg:px-24 py-4 border-b-2 border-restaurants-100;
+}
+
+header .header-logo-container {
+  @apply flex flex-row items-center justify-start;
+}
+
+.header-logo-container .header-logo {
+  @apply w-8;
+}
+
+.header-logo-container .header-title {
+  @apply text-2xl text-restaurants-950 font-bold ms-4;
+}
+
+header .header-actions {
+  @apply hidden lg:flex flex-row items-center justify-end gap-5;
+}
+
+.header-actions .header-action {
+  @apply flex flex-row items-center justify-start gap-2;
+}
+
+.header-actions .header-action:not(:first-child) {
+  @apply border-s-2 border-restaurants-300 ps-4;
+}
+
+.header-action .header-action-title {
+  @apply text-restaurants-950 text-xs;
+}
+
+.header-action .header-action-icon {
+  @apply w-6 me-2;
+}
+
+/*
+ * footer
+ */
+
+footer {
+  @apply border-t-2 border-slate-900/5 mt-8 p-5 bg-restaurants-50;
+}
+
+footer .copyright {
+  @apply text-center text-sm leading-6 text-restaurants-500;
+}
+
+/*
+ * home
+ */
+
+ .home {
+  @apply w-screen flex flex-col items-center justify-start pt-0;
+ }
+
+/*
+ * search
+ */
+
+.search-container {
+  @apply container overflow-hidden px-0 mt-8 flex flex-row items-center justify-center;
+}
+
+.search-container .search-control {
+  @apply relative w-full lg:w-1/4 z-20;
+}
+
+.search-control .search-input {
+  @apply form-input px-4 py-3 rounded-lg w-full bg-white border-2 border-restaurants-300 text-restaurants-950 placeholder-restaurants-300 text-base rounded-lg focus:ring-restaurants-50 focus:border-restaurants-950 block z-20;
+}
+
+.search-control .search-btn {
+  @apply absolute inset-y-0 right-0 flex items-center pr-3 z-20;
+}
+
+/*
+ * restaurants
+ */
+
+.restaurants-container {
+  @apply container mx-auto overflow-hidden px-0 mt-8;
+}
+
+.restaurants-container .restaurants {
+  @apply flex flex-row items-center justify-around gap-4 py-2 px-5;
+}
+
+.restaurants .restaurant {
+  @apply relative flex flex-col items-center justify-center rounded-lg border-2 border-restaurants-100 text-restaurants-400 bg-auto bg-no-repeat bg-right-bottom py-8 px-6 w-72 h-24 z-10 cursor-pointer hover:shadow-md hover:shadow-restaurants-300;
+  transition: .6s cubic-bezier(.165,.84,.44,1);
+}
+
+.restaurant.active, .restaurant:hover {
+  border-color: #5d5d5d;
+  background-color: #5d5d5d;
+  color: #FFFFFF;
+}
+
+.restaurant.active {
+  @apply shadow-md shadow-restaurants-300;
+}
+
+.restaurant .restaurant-content-container {
+  @apply flex flex-row items-center justify-center;
+}
+
+.restaurant .restaurant-content-container .restaurant-image-container {
+  @apply me-0 md:me-2 lg:me-6 z-10;
+}
+
+.restaurant .restaurant-image-container .restaurant-image {
+  @apply w-[32px] h-[32px] lg:w-[46px] lg:h-[46px];
+}
+
+.restaurant .restaurant-content-container .restaurant-title {
+  @apply hidden md:block text-2xl font-semibold z-10;
+}
+
+.restaurant .restaurant-bg {
+  @apply absolute right-0 bottom-0;
+}
+
+/*
+ * restaurant reservations
+ */
+
+.restaurant-reservations-container {
+  @apply container mx-auto px-0 mt-8;
+}

@@ -1,0 +1,56 @@
+{
+  "name": "restaurants-manager-web",
+  "version": "1.0.0",
+  "description": "This WEB is a front-end responsible for table reservations in the different restaurants managed by the system.",
+  "author": "Nicolas Molina",
+  "license": "ISC",
+  "scripts": {
+    "build": "next build",
+    "start": "next start -p 3031",
+    "dev": "next dev -p 3031",
+    "css": "npx tailwindcss -i ./public/assets/css/global.css -o ./public/assets/css/globals.css --watch",
+    "lint": "eslint src --ext \".ts,.tsx\" --fix",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/comodinx/restaurants-manager-web"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.40.1",
+    "@types/minimatch": "^5.1.2",
+    "axios": "^1.7.2",
+    "lodash": "^4.17.21",
+    "minimatch": "^9.0.3",
+    "moment": "^2.30.1",
+    "next": "13.2.4",
+    "pluralize": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "18.15.0",
+    "@types/pluralize": "^0.0.33",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.12.1",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-next": "13.2.4",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.2",
+    "npm-check-updates": "^12.4.0",
+    "postcss": "^8.4.22",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.3.1",
+    "typescript": "4.9.5"
+  }
+}
