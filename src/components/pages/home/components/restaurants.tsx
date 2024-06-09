@@ -28,12 +28,12 @@ export function Restaurants(props: RestaurantsProperties) {
       <section className={"restaurants-container fadeIn"}>
         {isLoading && !isError && <StateLoading />}
 
-        {isError && <StateError />}
+        {isError && <StateError className="restaurants-state-error" />}
 
         {isEmpty && (
           <StateEmpty
             className="restaurants-state-empty"
-            message="🍽️ No encotramos el restaurante que estas buscando, lo sentimos mucho 🥲"
+            message="🍽️ No encontramos el restaurante que estas buscando, lo sentimos mucho 🥲"
           />
         )}
 

@@ -183,8 +183,12 @@ footer .copyright {
   @apply container flex flex-row items-center justify-center mx-auto overflow-hidden px-0 pt-4 mt-8;
 }
 
+.restaurants-container .restaurants-state-error {
+  @apply border-red-200 bg-red-50 w-full md:w-2/4 mx-5 lg:mx-0;
+}
+
 .restaurants-container .restaurants-state-empty {
-  @apply border-yellow-200 bg-yellow-50 w-2/4;
+  @apply border-yellow-200 bg-yellow-50 w-full md:w-2/4 mx-5 lg:mx-0;
 }
 
 .restaurants-container .restaurants {

@@ -1,36 +1,36 @@
-import Link from "next/link";
+import { Panel } from "../panels";
+
+//
+// interfaces
+//
+export type StateErrorProperties = {
+  className?: string;
+  title?: string;
+  message?: string;
+};
 
 //
 // component
 //
-export function StateError() {
+export function StateError(props: StateErrorProperties) {
+  //
+  // constants
+  //
+  const {
+    className = "",
+    title = "Ooops!",
+    message = "❌ Parece que ocurrio un error. Por favor intenta de nuevo más tarde 🥲",
+  } = props;
+
+  //
+  // render
+  //
   return (
     <>
-      <div className="d-flex flex-column flex-center">
-        <div className="card-body py-15 py-lg-20 text-center">
-          <h1 className="fw-bolder fs-2qx text-gray-900 mb-4">Ooops!</h1>
-          <div className="fw-semibold fs-6 text-gray-500 mb-7">
-            Por favor intente de nuevo más tarde
-          </div>
-          <div className="mb-11">
-            <img
-              src="/assets/media/auth/500-error.png"
-              className="mw-100 mh-300px theme-light-show"
-              alt="error"
-            />
-            <img
-              src="/assets/media/auth/500-error-dark.png"
-              className="mw-100 mh-300px theme-dark-show"
-              alt="error"
-            />
-          </div>
-          <div className="mb-0">
-            <Link href="/" className="btn btn-sm btn-primary">
-              Volver al inicio
-            </Link>
-          </div>
-        </div>
-      </div>
+      <Panel className={className}>
+        <h2 className="font-semibold text-xl text-restaurants-950">{title}</h2>
+        <p className="text-sm text-restaurants-950">{message}</p>
+      </Panel>
     </>
   );
 }
