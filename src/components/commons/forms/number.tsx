@@ -35,7 +35,7 @@ export function InputNumber(props: InputNumberProperties) {
     classNameSubtract = "",
     classNamePlus = "",
     placeholder = "1",
-    onChange = () => {},
+    onChange = () => null,
   } = props;
   const [numberValue, setNumberValue] = useState(value);
 
@@ -43,7 +43,7 @@ export function InputNumber(props: InputNumberProperties) {
   // helpers
   //
   const handleChangeNumberValue = (value: number) => {
-    setNumberValue(_numberValue => {
+    setNumberValue((_numberValue) => {
       let newNumberValue = _numberValue + value;
 
       if (newNumberValue < min) {
@@ -67,7 +67,8 @@ export function InputNumber(props: InputNumberProperties) {
         <button
           type="button"
           className={`bg-restaurants-50 hover:bg-restaurants-200 border border-restaurants-300 rounded-s-lg py-2 px-3 h-10 focus:ring-restaurants-100 focus:ring-2 focus:outline-restaurants-300 ${classNameSubtract}`}
-          onClick={() => handleChangeNumberValue(-1)} >
+          onClick={() => handleChangeNumberValue(-1)}
+        >
           <IconSubtract />
         </button>
 
@@ -76,12 +77,14 @@ export function InputNumber(props: InputNumberProperties) {
           value={numberValue}
           placeholder={placeholder}
           className={`bg-white border-x-0 border-restaurants-300 h-10 text-center text-restaurants-950 text-sm focus:ring-restaurants-300 focus:border-restaurants-500 focus:outline-none block w-full p-2.5 ${classNameInput}`}
-          onChange={(e: any) => handleChangeNumberValue(e.target.value)} />
+          onChange={(e: any) => handleChangeNumberValue(e.target.value)}
+        />
 
         <button
-          type="button" 
+          type="button"
           className={`bg-restaurants-50 hover:bg-restaurants-200 border border-restaurants-300 rounded-e-lg py-2 px-3 h-10 focus:ring-restaurants-100 focus:ring-2 focus:outline-restaurants-300 ${classNamePlus}`}
-          onClick={() => handleChangeNumberValue(1)} >
+          onClick={() => handleChangeNumberValue(1)}
+        >
           <IconPlus />
         </button>
       </div>

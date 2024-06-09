@@ -27,14 +27,8 @@ export function RestaurantReservations(props: RestaurantReservationsProperties) 
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTable, setSelectedTable] = useState<any>(null);
   const [selectedNumGuests, setSelectedNumGuests] = useState<number>(1);
-  const {
-    data,
-    isError,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useRestaurantReservations(id);
+  const { data, isError, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useRestaurantReservations(id);
   const context: any = {
     id,
     restaurant: data?.restaurant,
@@ -63,9 +57,10 @@ export function RestaurantReservations(props: RestaurantReservationsProperties) 
     const previousSelectedDate = selectedDate;
 
     setSelectedDate(date);
-    setSelectedTable(_selectedTable => {
+    setSelectedTable((_selectedTable) => {
       const change = _selectedTable?.id !== selectedTable?.id || previousSelectedDate !== date;
-      const newSelectedTable = _selectedTable?.id === selectedTable?.id && !change ? null : selectedTable;
+      const newSelectedTable =
+        _selectedTable?.id === selectedTable?.id && !change ? null : selectedTable;
 
       handleDrawerShow(!!newSelectedTable);
       return newSelectedTable;
@@ -91,10 +86,12 @@ export function RestaurantReservations(props: RestaurantReservationsProperties) 
 
   const handleConfirm = async () => {
     setIsConfirming(true);
-    
+
     if (!customer.email?.trim() && !customer.phone?.trim()) {
       setIsConfirming(false);
-      return alert("Por favor ingresa tu Correo Electrónico o tu teléfono para la confirmación de tu reserva.");
+      return alert(
+        "Por favor ingresa tu Correo Electrónico o tu teléfono para la confirmación de tu reserva."
+      );
     }
 
     const options: any = {
@@ -116,10 +113,14 @@ export function RestaurantReservations(props: RestaurantReservationsProperties) 
         alert("Reserva realizada con exito.");
         window.location.href = "/";
       } else {
-        alert("Lo sentimos, parece que el correo electrónico o el código ingresados no son correctos, inténtalo de nuevo.");
+        alert(
+          "Lo sentimos, parece que el correo electrónico o el código ingresados no son correctos, inténtalo de nuevo."
+        );
       }
     } catch (e) {
-      alert("Lo sentimos, parece que el correo electrónico o el código ingresados no son correctos, inténtalo de nuevo.");
+      alert(
+        "Lo sentimos, parece que el correo electrónico o el código ingresados no son correctos, inténtalo de nuevo."
+      );
     }
 
     setIsConfirming(false);

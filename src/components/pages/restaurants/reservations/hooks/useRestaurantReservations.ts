@@ -7,7 +7,9 @@ import constants from "@app/constants";
 // hooks
 //
 export const useRestaurantReservations = (id?: string | number) => {
-  const fetchReservations = async ({ pageParam = moment().format(constants.dates.formatReservationDate) }) => {
+  const fetchReservations = async ({
+    pageParam = moment().format(constants.dates.formatReservationDate),
+  }) => {
     const startDate = pageParam;
     const opts = {
       params: {
@@ -20,35 +22,28 @@ export const useRestaurantReservations = (id?: string | number) => {
     return fetcher.get(`/restaurants/${id}/availability`, opts);
   };
 
-  const {
-    data,
-    error,
-    isError,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery({
-    queryKey: ['restaurant-availability', id],
-    queryFn: fetchReservations,
-    enabled: !!id,
-    initialPageParam: moment().format(constants.dates.formatReservationDate),
-    getNextPageParam: (lastPage) => {
-      const lastLoadPageTimelines = lastPage?.timelines;
+  const { data, error, isError, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["restaurant-availability", id],
+      queryFn: fetchReservations,
+      enabled: !!id,
+      initialPageParam: moment().format(constants.dates.formatReservationDate),
+      getNextPageParam: (lastPage) => {
+        const lastLoadPageTimelines = lastPage?.timelines;
 
-      if (!lastLoadPageTimelines) {
-        return null;
-      }
+        if (!lastLoadPageTimelines) {
+          return null;
+        }
 
-      const lastTimelineDates = Object.keys(lastLoadPageTimelines);
-      return moment(
-        lastTimelineDates[lastTimelineDates.length - 1],
-        constants.dates.formatReservationDate
-      )
-        .add(1, 'days')
-        .format(constants.dates.formatReservationDate);
-    },
-  });
+        const lastTimelineDates = Object.keys(lastLoadPageTimelines);
+        return moment(
+          lastTimelineDates[lastTimelineDates.length - 1],
+          constants.dates.formatReservationDate
+        )
+          .add(1, "days")
+          .format(constants.dates.formatReservationDate);
+      },
+    });
 
   const allData: any = {
     restaurant: data?.pages[0]?.restaurant || {},

@@ -57,7 +57,7 @@ export default async function genericApiHandler(req: NextApiRequest, res: NextAp
     version: process.env.APP_VERSION,
     api: process.env.API_URL,
     [responseType]: {
-      "api": service,
+      api: service,
     },
   });
 }

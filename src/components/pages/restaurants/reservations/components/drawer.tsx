@@ -1,6 +1,20 @@
 import moment from "moment";
 import { useContext } from "react";
-import { Btn, BtnIcon, IconCalendar, IconClose, IconEmail, IconGuests, IconPhone, IconRestaurant, IconTable, IconUser, Panel, PanelDivider, PanelItem } from "@app/components";
+import {
+  Btn,
+  BtnIcon,
+  IconCalendar,
+  IconClose,
+  IconEmail,
+  IconGuests,
+  IconPhone,
+  IconRestaurant,
+  IconTable,
+  IconUser,
+  Panel,
+  PanelDivider,
+  PanelItem,
+} from "@app/components";
 import constants from "@app/constants";
 import { RestaurantReservationsContext } from "../context";
 
@@ -41,8 +55,12 @@ export function Drawer(props: DrawerProperties) {
     selectedNumGuests = 1,
     setShowDrawer,
     isConfirming,
-   } = useContext(RestaurantReservationsContext);
-  const formattedDate = selectedDate ? moment(selectedDate, constants.dates.formatReservationDate).format(constants.dates.formatReservationDateForHummands) : "";
+  } = useContext(RestaurantReservationsContext);
+  const formattedDate = selectedDate
+    ? moment(selectedDate, constants.dates.formatReservationDate).format(
+        constants.dates.formatReservationDateForHummands
+      )
+    : "";
   const hasCustomer = !!customer.email || !!customer.phone;
   const isEnabled = !isConfirming && hasCustomer;
 
@@ -51,12 +69,16 @@ export function Drawer(props: DrawerProperties) {
   //
   if (!show) {
     if (!selectedTable) {
-      return <></>
+      return <></>;
     }
 
     return (
       <>
-        <div onClick={() => setShowDrawer(true)} className="fixed top-28 right-0 z-40 p-4 pe-8 overflow-y-auto transition-transform translate-x-6 shadow-md shadow-restaurants-300 flex items-center justify-center text-restaurants-950 bg-green-500 rounded-full w-auto h-14 hover:bg-green-600 focus:outline-none" tabIndex={-1}>
+        <div
+          onClick={() => setShowDrawer(true)}
+          className="fixed top-28 right-0 z-40 p-4 pe-8 overflow-y-auto transition-transform translate-x-6 shadow-md shadow-restaurants-300 flex items-center justify-center text-restaurants-950 bg-green-500 rounded-full w-auto h-14 hover:bg-green-600 focus:outline-none"
+          tabIndex={-1}
+        >
           confirmar
         </div>
       </>
@@ -70,10 +92,11 @@ export function Drawer(props: DrawerProperties) {
           translate-none
           translate-x-full
       */}
-      <div className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto bg-white w-80 border-s-1 border-restaurants-200 shadow-md shadow-restaurants-300 transition-transform translate-none" tabIndex={-1}>
-        <h2 className="mt-1 mb-4 font-semibold text-xl text-restaurants-950">
-          Confirmación
-        </h2>
+      <div
+        className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto bg-white w-80 border-s-1 border-restaurants-200 shadow-md shadow-restaurants-300 transition-transform translate-none"
+        tabIndex={-1}
+      >
+        <h2 className="mt-1 mb-4 font-semibold text-xl text-restaurants-950">Confirmación</h2>
 
         <BtnIcon onClick={onClose}>
           <IconClose />
@@ -83,7 +106,9 @@ export function Drawer(props: DrawerProperties) {
 
         {!hasCustomer && (
           <Panel className="border-yellow-200 bg-yellow-50 mt-8">
-            <p className="text-sm text-restaurants-950">💡 Por favor, recorda completar los datos de contanto</p>
+            <p className="text-sm text-restaurants-950">
+              💡 Por favor, recorda completar los datos de contanto
+            </p>
           </Panel>
         )}
 
@@ -100,7 +125,7 @@ export function Drawer(props: DrawerProperties) {
                   <PanelDivider />
                 </>
               )}
-              
+
               {!!customer.email && (
                 <>
                   <PanelItem>
@@ -141,14 +166,22 @@ export function Drawer(props: DrawerProperties) {
 
           <PanelItem>
             <IconGuests className="mx-1" size={4} />
-            <p className="mb-0 text-sm text-restaurants-950">Cantidad de comensales {selectedNumGuests}</p>
+            <p className="mb-0 text-sm text-restaurants-950">
+              Cantidad de comensales {selectedNumGuests}
+            </p>
           </PanelItem>
 
           <PanelDivider />
 
           <PanelItem>
-            <IconTable capacity={selectedTable.capacity} size={sizeBasedOnCapacity[selectedTable.capacity]} alt={selectedTable.observations} />
-            <p className="mb-0 text-sm text-restaurants-950">Mesa para {selectedTable.capacity} personas</p>
+            <IconTable
+              capacity={selectedTable.capacity}
+              size={sizeBasedOnCapacity[selectedTable.capacity]}
+              alt={selectedTable.observations}
+            />
+            <p className="mb-0 text-sm text-restaurants-950">
+              Mesa para {selectedTable.capacity} personas
+            </p>
           </PanelItem>
         </Panel>
 
@@ -156,7 +189,7 @@ export function Drawer(props: DrawerProperties) {
           <Btn variant="cancel" onClick={onClose}>
             Cancelar
           </Btn>
-          <Btn isLoading={isConfirming} variant="accept" onClick={onConfirm}>
+          <Btn isLoading={isConfirming} disabled={!isEnabled} variant="accept" onClick={onConfirm}>
             Confirmar
           </Btn>
         </div>

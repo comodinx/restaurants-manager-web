@@ -10,7 +10,7 @@ export const restaurants: Restaurant[] = [
     id: 1,
     title: "Salud",
     description:
-    "Todo relacionado con la salud física y el tratamiento de enfermedades en tu mascota. Incluye información sobre síntomas, tratamientos y cuidados médicos.",
+      "Todo relacionado con la salud física y el tratamiento de enfermedades en tu mascota. Incluye información sobre síntomas, tratamientos y cuidados médicos.",
     icon: "ic-pet-health.svg",
   },
   {

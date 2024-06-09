@@ -65,7 +65,7 @@ export function Timelines(props: TimelinesProperties) {
   //
   return (
     <>
-      <h2 className="mt-1 mb-4 font-semibold text-xl text-restaurants-950">
+      <h2 className="mt-10 mb-4 font-semibold text-xl text-restaurants-950">
         ¿Que día vas a reservar?
       </h2>
 
@@ -76,7 +76,9 @@ export function Timelines(props: TimelinesProperties) {
       </ol>
 
       <div ref={loader} className="flex items-center justify-center">
-        <div className="px-3 py-1 text-xs font-medium leading-none text-center text-restaurants-950 bg-green-200 rounded-full animate-pulse">cargando...</div>
+        <div className="px-3 py-1 text-xs font-medium leading-none text-center text-restaurants-950 bg-green-200 rounded-full animate-pulse">
+          cargando...
+        </div>
       </div>
     </>
   );

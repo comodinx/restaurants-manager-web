@@ -35,7 +35,7 @@ export function InputNumberControl(props: InputNumberControlProperties) {
     classNameSubtract = "",
     classNamePlus = "",
     placeholder = "1",
-    onChange = () => {},
+    onChange = () => null,
   } = props;
 
   //
@@ -55,7 +55,8 @@ export function InputNumberControl(props: InputNumberControlProperties) {
           classNameSubtract={classNameSubtract}
           classNamePlus={classNamePlus}
           placeholder={placeholder}
-          onChange={onChange} />
+          onChange={onChange}
+        />
       </div>
     </>
   );

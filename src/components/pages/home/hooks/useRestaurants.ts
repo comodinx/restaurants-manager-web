@@ -4,7 +4,7 @@ import { fetcher } from "@app/helpers";
 //
 // constants
 //
-const regexpSpace = /\s+/g
+const regexpSpace = /\s+/g;
 
 //
 // hooks
@@ -38,7 +38,7 @@ export const useRestaurants = (options: any = {}) => {
 //
 const resolveFilters = (options: any, searchTerm: string | null = null) => {
   const filtersBuilder: string[] = [];
-  
+
   if (searchTerm) {
     filtersBuilder.push(`description li %${searchTerm.replace(regexpSpace, "%")}%`);
   }

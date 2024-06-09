@@ -15,7 +15,6 @@ const env = constants.appEnv;
 const apiUrl = process.env.API_URL || "http://localhost:3030";
 const debug = env !== "production";
 
-
 // Define service timeout
 const defaultOptions = {
   timeout: {
@@ -25,13 +24,15 @@ const defaultOptions = {
   },
 };
 
-const api = new Api(merge({}, defaultOptions, {
-  health: process.env.API_HEALTH || "/health",
-  responseType: "json",
-  baseURL: apiUrl,
-  name: env,
-  debug,
-}));
+const api = new Api(
+  merge({}, defaultOptions, {
+    health: process.env.API_HEALTH || "/health",
+    responseType: "json",
+    baseURL: apiUrl,
+    name: env,
+    debug,
+  })
+);
 
 //
 // export

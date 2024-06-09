@@ -8,9 +8,7 @@ export function StateError() {
     <>
       <div className="d-flex flex-column flex-center">
         <div className="card-body py-15 py-lg-20 text-center">
-          <h1 className="fw-bolder fs-2qx text-gray-900 mb-4">
-            Ooops!
-          </h1>
+          <h1 className="fw-bolder fs-2qx text-gray-900 mb-4">Ooops!</h1>
           <div className="fw-semibold fs-6 text-gray-500 mb-7">
             Por favor intente de nuevo más tarde
           </div>

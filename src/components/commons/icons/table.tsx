@@ -32,6 +32,7 @@ export function IconTable(props: IconTableProperties) {
     <img
       className={`${className} ${size}`}
       src={`/assets/media/img/img-table-${capacity}-guests.png`}
-      alt={alt} />
+      alt={alt}
+    />
   );
 }

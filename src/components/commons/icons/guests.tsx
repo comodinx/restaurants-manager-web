@@ -27,6 +27,10 @@ export function IconGuests(props: IconGuestsProperties) {
       w-8 h-8
   */
   return (
-    <img className={`${className} w-${size} h-${size}`} src="/assets/media/img/ic-guests.png" alt="" />
+    <img
+      className={`${className} w-${size} h-${size}`}
+      src="/assets/media/img/ic-guests.png"
+      alt=""
+    />
   );
 }

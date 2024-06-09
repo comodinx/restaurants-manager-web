@@ -9,6 +9,9 @@ export type InputControlProperties = {
   label?: string;
   value?: string;
   className?: string;
+  classNameInput?: string;
+  classNameLabel?: string;
+  classNameIcon?: string;
   placeholder?: string;
   onChange?: (e: any) => void;
 };
@@ -26,8 +29,11 @@ export function InputControl(props: InputControlProperties) {
     label = "",
     value = "",
     className = "",
+    classNameInput = "",
+    classNameLabel = "",
+    classNameIcon = "",
     placeholder = "",
-    onChange = () => {},
+    onChange = () => null,
   } = props;
 
   //
@@ -35,17 +41,27 @@ export function InputControl(props: InputControlProperties) {
   //
   return (
     <>
-      <div className="flex flex-col items-start justify-center">
-          <label className="block mb-2 text-sm font-medium text-restaurants-900">{label}</label>
-          <div className="relative">
-            {!!icon && (
-              <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                {icon}
-              </div>
-            )}
-            <Input type={type} placeholder={placeholder} value={value} onChange={onChange} />
-          </div>
+      <div className={`flex flex-col items-start justify-center ${className}`}>
+        <label className={`block mb-2 text-sm font-medium text-restaurants-900 ${classNameLabel}`}>
+          {label}
+        </label>
+        <div className="relative">
+          {!!icon && (
+            <div
+              className={`absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none ${classNameIcon}`}
+            >
+              {icon}
+            </div>
+          )}
+          <Input
+            className={classNameInput}
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+          />
         </div>
+      </div>
     </>
   );
 }

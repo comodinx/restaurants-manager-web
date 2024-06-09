@@ -33,8 +33,8 @@ export function Table(props: TableProperties) {
   const { date, table, available, onSelectTable } = props;
   const { selectedTable, selectedDate } = useContext(RestaurantReservationsContext);
   const isSelected = selectedTable?.id === table.id && selectedDate === date;
-  const status = available ? isSelected ? "Selecciona" : "Disponible" : "Reservada";
-  const variant = available ? isSelected ? "violet" : "green" : "red";
+  const status = available ? (isSelected ? "Selecciona" : "Disponible") : "Reservada";
+  const variant = available ? (isSelected ? "violet" : "green") : "red";
 
   //
   // helpers
@@ -55,15 +55,21 @@ export function Table(props: TableProperties) {
           border-red-200
           bg-restaurant-200
       */}
-      <div className={`flex items-center justify-start p-4 mt-4 border border-${available ? "restaurants" : "red"}-200 rounded-lg hover:shadow-lg ${isSelected ? "shadow-lg bg-restaurants-50" : ""}`} onClick={handleSelectTable}>
+      <div
+        className={`flex items-center justify-start p-4 mt-4 border border-${
+          available ? "restaurants" : "red"
+        }-200 rounded-lg hover:shadow-lg ${isSelected ? "shadow-lg bg-restaurants-50" : ""}`}
+        onClick={handleSelectTable}
+      >
         <div className="flex flex-col md:flex-row gap-2 items-center space-x-3 rtl:space-x-reverse">
           <div className="flex-shrink-0">
             <img
               className={sizeBasedOnCapacity[table.capacity]}
               src={`/assets/media/img/img-table-${table.capacity}-guests.png`}
-              alt={table.observations} />
+              alt={table.observations}
+            />
           </div>
-          
+
           <div className="flex-1 flex flex-col gap-2 items-start justify-center">
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-restaurants-900 truncate">

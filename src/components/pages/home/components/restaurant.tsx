@@ -1,3 +1,4 @@
+import { IconRestaurant } from "@app/components/commons";
 import Link from "next/link";
 
 //
@@ -21,20 +22,20 @@ export function Restaurant(props: RestaurantProperties) {
   //
   return (
     <>
-      <Link href={`/restaurants/${restaurant.id}`} className="restaurant fadeIn" style={{ backgroundImage: "url('/assets/media/img/shape-path.svg')" }}>
+      <Link
+        href={`/restaurants/${restaurant.id}`}
+        className="restaurant fadeIn"
+        style={{ backgroundImage: "url('/assets/media/img/shape-path.svg')" }}
+      >
         <div className="restaurant-content-container">
           <div className="restaurant-image-container">
-            <img
-              className="restaurant-image"
-              src={`/assets/media/img/${restaurant.icon}`}
-              alt={restaurant.description}
-            />
+            <IconRestaurant className="restaurant-image" />
           </div>
           <h3 className="restaurant-title">{restaurant.description}</h3>
         </div>
 
         <div className="restaurant-bg">
-          <img src="/assets/media/img/shape-paws.svg" alt="Categoría" />
+          <img src="/assets/media/img/shape-utensils.png" alt="Categoría" />
         </div>
       </Link>
     </>

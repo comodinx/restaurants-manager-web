@@ -15,7 +15,7 @@ export function BtnIcon(props: BtnIconProperties) {
   //
   // constants
   //
-  const { children, className = "", size = "w-8 h-8", onClick = () => {} } = props;
+  const { children, className = "", size = "w-8 h-8", onClick = () => null } = props;
 
   //
   // render
@@ -29,7 +29,11 @@ export function BtnIcon(props: BtnIconProperties) {
       w-8 h-8
   */
   return (
-    <button type="button" className={`text-restaurants-400 bg-transparent hover:bg-restaurants-200 hover:text-restaurants-900 rounded-lg text-sm absolute top-2.5 end-2.5 inline-flex items-center justify-center ${size} ${className}`} onClick={onClick}>
+    <button
+      type="button"
+      className={`text-restaurants-400 bg-transparent hover:bg-restaurants-200 hover:text-restaurants-900 rounded-lg text-sm absolute top-2.5 end-2.5 inline-flex items-center justify-center ${size} ${className}`}
+      onClick={onClick}
+    >
       {children}
       <span className="sr-only">&nbsp;</span>
     </button>

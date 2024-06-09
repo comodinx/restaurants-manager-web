@@ -1,7 +1,8 @@
 /**
  * Current environment
  */
-export const env = process.env.NODE_ENV || process.env.APP_NODE_ENV || process.env.APP_ENV || "development";
+export const env =
+  process.env.NODE_ENV || process.env.APP_NODE_ENV || process.env.APP_ENV || "development";
 
 /**
  * Current app environment
