@@ -31,7 +31,7 @@ export function Input(props: InputProperties) {
     <>
       <input
         type={type}
-        className={`bg-white border border-restaurants-300 text-restaurants-950 text-sm rounded-lg focus:ring-restaurants-500 focus:border-restaurants-300 focus:outline-restaurants-300 block w-full ps-10 p-2.5 ${className}`}
+        className={`input ${className}`}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

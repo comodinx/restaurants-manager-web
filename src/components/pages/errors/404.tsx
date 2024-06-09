@@ -1,36 +1,33 @@
-import Link from "next/link";
+import { Btn, LayoutFooter, LayoutHeader } from "@app/components";
+import Head from "next/head";
 
 //
 // component
 //
 export function Error404() {
+  //
+  // render
+  //
   return (
     <>
-      <div className="d-flex flex-column flex-center">
-        <div className="card-body py-15 py-lg-20 text-center">
-          <h1 className="fw-bolder fs-2qx text-gray-900 mb-4">Ooops!</h1>
-          <div className="fw-semibold fs-6 text-gray-500 mb-7">
-            La página que estas buscando no existe
-          </div>
-          <div className="mb-11">
-            <img
-              src="/assets/media/auth/404-error.png"
-              className="mw-100 mh-300px theme-light-show"
-              alt="error"
-            />
-            <img
-              src="/assets/media/auth/404-error-dark.png"
-              className="mw-100 mh-300px theme-dark-show"
-              alt="error"
-            />
-          </div>
-          <div className="mb-0">
-            <Link href="/" className="btn btn-sm btn-primary">
-              Volver al inicio
-            </Link>
-          </div>
+      <Head>
+        <title>Restaurantes - Reservas online</title>
+      </Head>
+
+      <LayoutHeader />
+
+      <main className="error-404-container">
+        <div className="error-404">
+          <img className="error-404-img" src="/assets/media/img/img-error-404.jpg" alt="Imagen" />
+          <h2 className="error-404-title">Ooops!</h2>
+          <p className="error-404-description">No pudimos encontrar lo que estas buscando.</p>
+          <Btn className="error-404-action" onClick={() => (window.location.href = "/")}>
+            Volver al inicio
+          </Btn>
         </div>
-      </div>
+      </main>
+
+      <LayoutFooter />
     </>
   );
 }

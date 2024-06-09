@@ -65,21 +65,26 @@ export function Timelines(props: TimelinesProperties) {
   //
   return (
     <>
-      <h2 className="mt-10 mb-4 font-semibold text-xl text-restaurants-950">
-        ¿Que día vas a reservar?
-      </h2>
+      <section className="restaurant-reservations-timelines-container">
+        <div className="restaurant-reservations-timelines">
+          <h2 className="restaurant-reservations-timelines-title">¿Que día vas a reservar?</h2>
 
-      <ol className="relative border-s-2 border-restaurants-200">
-        {Object.keys(timelines).map((date: string, i: any) => (
-          <Timeline key={i} date={date} timeline={timelines[date]} onSelectTable={onSelectTable} />
-        ))}
-      </ol>
+          <ol className="restaurant-reservations-timelines-entries">
+            {Object.keys(timelines).map((date: string, i: any) => (
+              <Timeline
+                key={i}
+                date={date}
+                timeline={timelines[date]}
+                onSelectTable={onSelectTable}
+              />
+            ))}
+          </ol>
 
-      <div ref={loader} className="flex items-center justify-center">
-        <div className="px-3 py-1 text-xs font-medium leading-none text-center text-restaurants-950 bg-green-200 rounded-full animate-pulse">
-          cargando...
+          <div ref={loader} className="restaurant-reservations-timelines-loader-container">
+            <div className="restaurant-reservations-timelines-loader">cargando...</div>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

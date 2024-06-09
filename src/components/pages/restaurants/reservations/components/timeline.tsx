@@ -39,16 +39,14 @@ export function Timeline(props: TimelineProperties) {
   //
   return (
     <>
-      <li className="mb-14 ms-6">
-        <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 ring-8 ring-white bg-green-500">
+      <li className="restaurant-reservations-timeline">
+        <span className="restaurant-reservations-timeline-icon">
           <IconCalendar />
         </span>
 
-        <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-          {formattedDate}
-        </time>
+        <time className="restaurant-reservations-timeline-date">{formattedDate}</time>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mt-4 border border-restaurants-200 rounded-lg shadow-lg">
+        <div className="restaurant-reservations-timeline-tables">
           {entries.map((entry: any, i: any) => (
             <Table
               key={i}

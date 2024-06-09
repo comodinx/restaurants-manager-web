@@ -20,9 +20,7 @@ export function PanelItem(props: PanelItemProperties) {
   //
   return (
     <>
-      <div className={`flex flex-row items-center justify-start gap-3 ${className}`}>
-        {children}
-      </div>
+      <div className={`panel-item ${className}`}>{children}</div>
     </>
   );
 }

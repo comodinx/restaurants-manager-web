@@ -43,8 +43,8 @@ export function InputNumberControl(props: InputNumberControlProperties) {
   //
   return (
     <>
-      <div className="flex flex-col items-start justify-center">
-        <label className="block mb-2 text-sm font-medium text-restaurants-900">{label}</label>
+      <div className="input-number-control-container">
+        <label className="input-number-control-label">{label}</label>
         <InputNumber
           min={min}
           max={max}

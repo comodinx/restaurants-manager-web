@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { useState } from "react";
-import { LayoutHeader, LayoutFooter, StateLoading, StateError } from "@app/components";
+import { LayoutHeader, LayoutFooter, StateLoading, StateError, Error404 } from "@app/components";
 import { fetcher, isInteger } from "@app/helpers";
 import { useRestaurantReservations } from "./hooks";
 import { RestaurantReservationsContext } from "./context";
 import { Timelines, Form, Drawer } from "./components";
+import { restaurants } from "@app/constants/restaurants";
 
 //
 // interfaces
@@ -129,6 +130,10 @@ export function RestaurantReservations(props: RestaurantReservationsProperties) 
   //
   // render
   //
+  if (!isLoading && isError) {
+    return <Error404 />;
+  }
+
   return (
     <RestaurantReservationsContext.Provider value={context}>
       <Head>
@@ -139,8 +144,6 @@ export function RestaurantReservations(props: RestaurantReservationsProperties) 
 
       <main className="restaurant-reservations-container">
         {isLoading && !isError && <StateLoading />}
-
-        {isError && <StateError />}
 
         {!isLoading && !isError && (
           <>

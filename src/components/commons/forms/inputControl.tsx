@@ -41,18 +41,10 @@ export function InputControl(props: InputControlProperties) {
   //
   return (
     <>
-      <div className={`flex flex-col items-start justify-center ${className}`}>
-        <label className={`block mb-2 text-sm font-medium text-restaurants-900 ${classNameLabel}`}>
-          {label}
-        </label>
-        <div className="relative">
-          {!!icon && (
-            <div
-              className={`absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none ${classNameIcon}`}
-            >
-              {icon}
-            </div>
-          )}
+      <div className={`input-control-container ${className}`}>
+        <label className={`input-control-label ${classNameLabel}`}>{label}</label>
+        <div className="input-control-icon-container">
+          {!!icon && <div className={`input-control-icon ${classNameIcon}`}>{icon}</div>}
           <Input
             className={classNameInput}
             type={type}

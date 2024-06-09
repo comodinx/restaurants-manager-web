@@ -40,39 +40,43 @@ export function Form(props: FormProperties) {
   //
   return (
     <>
-      <h2 className="mt-1 mb-4 font-semibold text-xl text-restaurants-950">Datos de contacto</h2>
+      <section className="restaurant-reservations-form-container">
+        <div className="restaurant-reservations-form">
+          <h2 className="restaurant-reservations-form-title">Datos de contacto</h2>
 
-      <Panel>
-        <form className="flex items-center justify-between gap-12 w-full relative">
-          <InputControl
-            icon={<IconUser />}
-            label="Nombre"
-            placeholder="Jonh Doe"
-            value={customer.name || ""}
-            onChange={(e: any) => handleChangeName(e.target.value)}
-          />
-          <InputControl
-            icon={<IconEmail />}
-            type="email"
-            label="Correo electrónico"
-            placeholder="jonhdoe@gmail.com"
-            value={customer.email || ""}
-            onChange={(e: any) => handleChangeEmail(e.target.value)}
-          />
-          <InputControl
-            icon={<IconPhone />}
-            label="Teléfono"
-            placeholder="+541123456789"
-            value={customer.phone || ""}
-            onChange={(e: any) => handleChangePhone(e.target.value)}
-          />
-          <InputNumberControl
-            label="¿Cuantas personas son?"
-            value={selectedNumGuests}
-            onChange={onChangeNumGuests}
-          />
-        </form>
-      </Panel>
+          <Panel>
+            <form className="restaurant-reservations-form-body">
+              <InputControl
+                icon={<IconUser />}
+                label="Nombre"
+                placeholder="Jonh Doe"
+                value={customer.name || ""}
+                onChange={(e: any) => handleChangeName(e.target.value)}
+              />
+              <InputControl
+                icon={<IconEmail />}
+                type="email"
+                label="Correo electrónico"
+                placeholder="jonhdoe@gmail.com"
+                value={customer.email || ""}
+                onChange={(e: any) => handleChangeEmail(e.target.value)}
+              />
+              <InputControl
+                icon={<IconPhone />}
+                label="Teléfono"
+                placeholder="+541123456789"
+                value={customer.phone || ""}
+                onChange={(e: any) => handleChangePhone(e.target.value)}
+              />
+              <InputNumberControl
+                label="¿Cuantas personas son?"
+                value={selectedNumGuests}
+                onChange={onChangeNumGuests}
+              />
+            </form>
+          </Panel>
+        </div>
+      </section>
     </>
   );
 }

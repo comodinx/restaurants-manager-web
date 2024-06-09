@@ -45,9 +45,7 @@ export function Btn(props: BtnProperties) {
     <button
       type="button"
       disabled={isLoading || disabled}
-      className={`flex flex-row items-center justify-center px-5 py-3 text-sm font-medium text-center rounded-lg focus:outline-none focus:z-10 focus:ring-4 ${
-        classesByVariant[variant] || ""
-      } ${className}`}
+      className={`btn ${classesByVariant[variant] || ""} ${className}`}
       onClick={onClick}
     >
       {isLoading && <IconSpinner />}

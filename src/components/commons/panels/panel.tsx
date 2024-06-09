@@ -20,11 +20,7 @@ export function Panel(props: PanelProperties) {
   //
   return (
     <>
-      <div
-        className={`flex flex-col items-start justify-start gap-4 p-4 border border-restaurants-200 rounded-lg shadow-lg ${className}`}
-      >
-        {children}
-      </div>
+      <div className={`panel ${className}`}>{children}</div>
     </>
   );
 }

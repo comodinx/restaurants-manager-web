@@ -19,7 +19,7 @@ export function PanelDivider(props: PanelDividerProperties) {
   //
   return (
     <>
-      <div className={`w-full h-1 border-b border-restaurants-200 ${className}`}></div>
+      <div className={`panel-divider ${className}`}></div>
     </>
   );
 }

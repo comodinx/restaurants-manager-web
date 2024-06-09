@@ -115,13 +115,176 @@ footer .copyright {
 }
 
 /*
+ * buttons
+ */
+
+.btn {
+  @apply flex flex-row items-center justify-center px-5 py-3 text-sm font-medium text-center rounded-lg focus:outline-none focus:z-10 focus:ring-4;
+}
+
+.btn-icon {
+  @apply text-restaurants-400 bg-transparent hover:bg-restaurants-200 hover:text-restaurants-900 rounded-lg text-sm absolute top-2.5 end-2.5 inline-flex items-center justify-center;
+}
+
+/*
+ * forms
+ */
+
+/*
+ * forms input
+ */
+ 
+.input {
+  @apply bg-white border border-restaurants-300 text-restaurants-950 text-sm rounded-lg focus:ring-restaurants-500 focus:border-restaurants-300 focus:outline-restaurants-300 block w-full ps-10 p-2.5;
+}
+
+/*
+ * forms input control
+ */
+  
+.input-control-container {
+  @apply flex flex-col items-start justify-center;
+}
+
+.input-control-container .input-control-label {
+  @apply block mb-2 text-sm font-medium text-restaurants-900;
+}
+
+.input-control-container .input-control-icon-container {
+  @apply relative;
+}
+
+.input-control-icon-container .input-control-icon {
+  @apply absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none;
+}
+
+/*
+ * forms input number
+ */
+
+.input-number-container {
+  @apply relative flex items-center max-w-[8rem];
+}
+
+.input-number-container .input-number {
+  @apply bg-white border-x-0 border-restaurants-300 h-10 text-center text-restaurants-950 text-sm focus:ring-restaurants-300 focus:border-restaurants-500 focus:outline-none block w-full p-2.5;
+}
+
+.input-number-container .input-number-btn {
+  @apply bg-restaurants-50 hover:bg-restaurants-200 border border-restaurants-300 py-2 px-3 h-10 focus:ring-restaurants-100 focus:ring-2 focus:outline-restaurants-300;
+}
+
+.input-number-btn.input-number-btn-subtract {
+  @apply rounded-s-lg;
+}
+
+.input-number-btn.input-number-btn-plus {
+  @apply rounded-e-lg;
+}
+
+/*
+ * forms input number control
+ */
+
+.input-number-control-container {
+  @apply flex flex-col items-start justify-center;
+}
+
+.input-number-control-container .input-number-control-label {
+  @apply block mb-2 text-sm font-medium text-restaurants-900;
+}
+
+/*
+ * pannels
+ */
+
+.panel {
+  @apply flex flex-col items-start justify-start gap-4 p-4 border border-restaurants-200 rounded-lg shadow-lg;
+}
+
+.panel .panel-item {
+  @apply flex flex-row items-center justify-start gap-3;
+}
+
+.panel .panel-divider {
+  @apply w-full h-1 border-b border-restaurants-200;
+}
+
+/*
+ * states
+ */
+
+/*
+ * states empty & error
+ */
+
+.state-empty-title, .state-error-title {
+  @apply font-semibold text-xl text-restaurants-950;
+}
+
+.state-empty-message, .state-error-message {
+  @apply text-sm text-restaurants-950;
+}
+
+/*
+ * states loading
+ */
+
+.state-loading {
+  @apply flex flex-col items-center justify-start pt-0;
+}
+
+/*
+ * home
+ */
+
+.indicator {
+  @apply inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full;
+}
+
+.indicator .indicator-icon {
+  @apply w-2 h-2 me-1 rounded-full;
+}
+
+/*
+ * errors
+ */
+
+/*
+ * errors 404
+ */
+
+ .error-404-container {
+  @apply container mx-auto px-0 pt-4 mt-8;
+}
+
+.error-404-container .error-404 {
+  @apply flex flex-col justify-center items-center h-full mx-5 lg:mx-0 p-24 rounded-md bg-restaurants-50 ;
+}
+
+.error-404 .error-404-img {
+  @apply w-80;
+}
+
+.error-404 .error-404-title {
+  @apply text-restaurants-950 text-xl md:text-3xl lg:text-4xl font-semibold;
+}
+
+.error-404 .error-404-description {
+  @apply mt-12 text-restaurants-500 text-sm md:text-base lg:text-lg font-light mt-2 drop-shadow-lg;
+}
+
+.error-404 .error-404-action {
+  @apply mt-12;
+}
+
+/*
  * home
  */
 
 .home {
   @apply w-screen flex flex-col items-center justify-start pt-0;
 }
-
 
 /*
  * home banners
@@ -236,4 +399,140 @@ footer .copyright {
 
 .restaurant-reservations-container {
   @apply container mx-auto px-0 mt-10;
+}
+
+/*
+ * restaurant reservations form
+ */
+
+.restaurant-reservations-container .restaurant-reservations-form-container {
+  @apply container mx-auto px-0 mt-10;
+}
+
+.restaurant-reservations-form-container .restaurant-reservations-form {
+  @apply relative mx-5 lg:mx-0;
+}
+
+.restaurant-reservations-form .restaurant-reservations-form-title {
+  @apply mt-1 mb-4 font-semibold text-xl text-restaurants-950;
+}
+
+.restaurant-reservations-form .restaurant-reservations-form-body {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full relative;
+}
+
+/*
+ * restaurant reservations timelines
+ */
+
+.restaurant-reservations-container .restaurant-reservations-timelines-container {
+  @apply container mx-auto px-0 mt-10;
+}
+
+.restaurant-reservations-timelines-container .restaurant-reservations-timelines {
+  @apply relative mx-5 lg:mx-0;
+}
+
+.restaurant-reservations-timelines .restaurant-reservations-timelines-title {
+  @apply mt-10 mb-4 font-semibold text-xl text-restaurants-950;
+}
+
+.restaurant-reservations-timelines-container .restaurant-reservations-timelines-loader-container {
+  @apply flex items-center justify-center;
+}
+
+.restaurant-reservations-timelines-loader-container .restaurant-reservations-timelines-loader {
+  @apply px-3 py-1 text-xs font-medium leading-none text-center text-restaurants-950 bg-green-200 rounded-full animate-pulse;
+}
+
+/*
+ * restaurant reservations timelines entries
+ */
+
+.restaurant-reservations-timelines .restaurant-reservations-timelines-entries {
+  @apply relative border-s-2 border-restaurants-200;
+}
+
+.restaurant-reservations-timelines-entries .restaurant-reservations-timeline {
+  @apply mb-14 ms-6;
+}
+
+.restaurant-reservations-timeline .restaurant-reservations-timeline-icon {
+  @apply absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 ring-8 ring-white bg-green-500;
+}
+
+.restaurant-reservations-timeline .restaurant-reservations-timeline-date {
+  @apply mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500;
+}
+
+/*
+ * restaurant reservations timelines entries tables
+ */
+
+.restaurant-reservations-timeline .restaurant-reservations-timeline-tables {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mt-4 border border-restaurants-200 rounded-lg shadow-lg;
+}
+
+.restaurant-reservations-timeline-tables .restaurant-reservations-timeline-table-container {
+  @apply flex items-center justify-start p-4 mt-4 border rounded-lg hover:shadow-lg;
+}
+
+.restaurant-reservations-timeline-table-container .restaurant-reservations-timeline-table {
+  @apply flex flex-col md:flex-row gap-2 items-center space-x-0 md:space-x-3 md:rtl:space-x-reverse;
+}
+
+.restaurant-reservations-timeline-table .restaurant-reservations-timeline-table-icon {
+  @apply flex-shrink-0;
+}
+
+.restaurant-reservations-timeline-table .restaurant-reservations-timeline-table-body {
+  @apply flex-1 flex flex-col items-center justify-center gap-2 ms-0;
+}
+
+.restaurant-reservations-timeline-table-body .restaurant-reservations-timeline-table-text-container {
+  @apply flex-1 min-w-0;
+}
+
+.restaurant-reservations-timeline-table-text-container .restaurant-reservations-timeline-table-text {
+  @apply text-sm font-semibold text-restaurants-900 truncate;
+}
+
+/*
+ * restaurant reservations drawer
+ */
+
+.restaurant-reservations-container .restaurant-reservations-drawer {
+  @apply fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto bg-white w-80 border-s border-restaurants-200 shadow-md shadow-restaurants-300 transition-transform;
+}
+
+.restaurant-reservations-container .restaurant-reservations-drawer-toggler {
+  @apply fixed top-28 right-0 z-40 p-4 pe-8 overflow-y-auto transition-transform translate-x-6 shadow-md shadow-restaurants-300 flex items-center justify-center text-restaurants-950 bg-green-500 rounded-full w-auto h-14 hover:bg-green-600 focus:outline-none;
+}
+
+.restaurant-reservations-drawer .restaurant-reservations-drawer-title {
+  @apply mt-1 mb-4 font-semibold text-xl text-restaurants-950;
+}
+
+.restaurant-reservations-drawer .restaurant-reservations-drawer-subtitle {
+  @apply mt-8 text-sm text-restaurants-950;
+}
+
+.restaurant-reservations-drawer .restaurant-reservations-drawer-body {
+  @apply mt-8;
+}
+
+.restaurant-reservations-drawer-body .restaurant-reservations-drawer-body-text {
+  @apply mb-0 text-sm text-restaurants-950;
+}
+
+.restaurant-reservations-drawer .restaurant-reservations-drawer-warning {
+  @apply border-yellow-200 bg-yellow-50 mt-8;
+}
+
+.restaurant-reservations-drawer-warning .restaurant-reservations-drawer-warning-message {
+  @apply text-sm text-restaurants-950;
+}
+
+.restaurant-reservations-drawer .restaurant-reservations-drawer-actions {
+  @apply mt-8 grid grid-cols-2 gap-4;
 }

@@ -1,6 +1,14 @@
+import { IconSpinner } from "../icons";
+
 //
 // component
 //
 export function StateLoading() {
-  return <span className="spinner-border spinner-border-md text-primary" role="status"></span>;
+  return (
+    <>
+      <section className="state-loading">
+        <IconSpinner />
+      </section>
+    </>
+  );
 }

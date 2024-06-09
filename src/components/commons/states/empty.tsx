@@ -24,8 +24,8 @@ export function StateEmpty(props: StateEmptyProperties) {
   return (
     <>
       <Panel className={className}>
-        <h2 className="font-semibold text-xl text-restaurants-950">{title}</h2>
-        <p className="text-sm text-restaurants-950">{message}</p>
+        <h2 className="state-empty-title">{title}</h2>
+        <p className="state-empty-message">{message}</p>
       </Panel>
     </>
   );
