@@ -57,4 +57,4 @@ npm run dev
 <!-- deep links -->
 [descargar]: #descargar
 [configuraciones]: #configuraciones
-[como_se_corre]: #como-se-corre
+[como_se_corre]: #cómo-se-corre
