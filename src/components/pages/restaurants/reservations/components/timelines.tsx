@@ -1,5 +1,6 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { RestaurantReservationsContext } from "../context";
+import { InfiniteScroll } from "@app/components";
 import { Timeline } from "./timeline";
 
 //
@@ -17,48 +18,12 @@ export function Timelines(props: TimelinesProperties) {
   // constants
   //
   const { onSelectTable } = props;
-  const loader = useRef(null);
   const {
     timelines = {},
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
   } = useContext(RestaurantReservationsContext);
-
-  //
-  // effects
-  //
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let timeoutId;
-
-        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
-          timeoutId = setTimeout(() => fetchNextPage(), 1000);
-        }
-
-        // Limpiamos el timeout en caso de cambiar de pantalla, esto evitar errores de renderin con eventos asincronicos
-        return () => {
-          if (timeoutId) {
-            clearTimeout(timeoutId);
-          }
-        };
-      },
-      {
-        threshold: 1.0,
-      }
-    );
-
-    if (loader.current) {
-      observer.observe(loader.current);
-    }
-
-    return () => {
-      if (loader.current) {
-        observer.unobserve(loader.current);
-      }
-    };
-  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   //
   // render
@@ -80,9 +45,13 @@ export function Timelines(props: TimelinesProperties) {
             ))}
           </ol>
 
-          <div ref={loader} className="restaurant-reservations-timelines-loader-container">
-            <div className="restaurant-reservations-timelines-loader">cargando...</div>
-          </div>
+          <InfiniteScroll
+            className="restaurant-reservations-timelines-loader-container"
+            classNameText="restaurant-reservations-timelines-loader"
+            fetchNextPage={fetchNextPage}
+            hasNextPage={hasNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
         </div>
       </section>
     </>

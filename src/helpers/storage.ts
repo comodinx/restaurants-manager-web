@@ -2,7 +2,7 @@
 // constants
 //
 const isServer = typeof window === "undefined";
-const prefix = "laika-";
+const prefix = "restaurants-";
 
 //
 // helpers

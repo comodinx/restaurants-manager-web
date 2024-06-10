@@ -834,6 +834,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   "uW": () => (/* reexport safe */ _panels__WEBPACK_IMPORTED_MODULE_2__.uW),
 /* harmony export */   "un": () => (/* reexport safe */ _buttons__WEBPACK_IMPORTED_MODULE_5__.u),
 /* harmony export */   "vM": () => (/* reexport safe */ _icons__WEBPACK_IMPORTED_MODULE_0__.vM),
+/* harmony export */   "v_": () => (/* reexport safe */ _infiniteScroll__WEBPACK_IMPORTED_MODULE_7__.v),
 /* harmony export */   "y5": () => (/* reexport safe */ _states__WEBPACK_IMPORTED_MODULE_3__.y5),
 /* harmony export */   "yG": () => (/* reexport safe */ _states__WEBPACK_IMPORTED_MODULE_3__.yG),
 /* harmony export */   "z$": () => (/* reexport safe */ _indicator__WEBPACK_IMPORTED_MODULE_6__.z)
@@ -845,8 +846,10 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8017);
 /* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9717);
 /* harmony import */ var _indicator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(978);
+/* harmony import */ var _infiniteScroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9865);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_forms__WEBPACK_IMPORTED_MODULE_1__, _layout__WEBPACK_IMPORTED_MODULE_4__, _buttons__WEBPACK_IMPORTED_MODULE_5__]);
 ([_forms__WEBPACK_IMPORTED_MODULE_1__, _layout__WEBPACK_IMPORTED_MODULE_4__, _buttons__WEBPACK_IMPORTED_MODULE_5__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -896,6 +899,76 @@ function Indicator(props) {
 
 /***/ }),
 
+/***/ 9865:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "v": () => (/* binding */ InfiniteScroll)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+//
+// component
+//
+function InfiniteScroll(props) {
+    //
+    // constants
+    //
+    const { text ="cargando..." , className ="" , classNameText ="" , fetchNextPage , hasNextPage , isFetchingNextPage , delay =1000  } = props;
+    const loader = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    //
+    // effects
+    //
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        const observer = new IntersectionObserver((entries)=>{
+            let timeoutId;
+            if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+                timeoutId = setTimeout(()=>fetchNextPage(), delay);
+            }
+            // Limpiamos el timeout en caso de cambiar de pantalla, esto evitar errores de renderin con eventos asincronicos
+            return ()=>{
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+            };
+        }, {
+            threshold: 1.0
+        });
+        if (loader.current) {
+            observer.observe(loader.current);
+        }
+        return ()=>{
+            if (loader.current) {
+                observer.unobserve(loader.current);
+            }
+        };
+    }, [
+        fetchNextPage,
+        hasNextPage,
+        isFetchingNextPage
+    ]);
+    //
+    // render
+    //
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+            ref: loader,
+            className: className,
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: classNameText,
+                children: text
+            })
+        })
+    });
+}
+
+
+/***/ }),
+
 /***/ 7587:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -913,7 +986,7 @@ function LayoutFooter() {
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("footer", {
             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                 className: "copyright",
-                children: "Copyright \xa9 2023 LAIKA - Derechos reservados"
+                children: "Copyright \xa9 2024 RESTAURANTES - Derechos reservados"
             })
         })
     });
@@ -1231,6 +1304,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   "uW": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.uW),
 /* harmony export */   "un": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.un),
 /* harmony export */   "vM": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.vM),
+/* harmony export */   "v_": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.v_),
 /* harmony export */   "y5": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.y5),
 /* harmony export */   "yG": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.yG),
 /* harmony export */   "z$": () => (/* reexport safe */ _commons__WEBPACK_IMPORTED_MODULE_0__.z$)
@@ -2364,9 +2438,11 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9233);
-/* harmony import */ var _timeline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(761);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_timeline__WEBPACK_IMPORTED_MODULE_3__]);
-_timeline__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _app_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4277);
+/* harmony import */ var _timeline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(761);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_app_components__WEBPACK_IMPORTED_MODULE_3__, _timeline__WEBPACK_IMPORTED_MODULE_4__]);
+([_app_components__WEBPACK_IMPORTED_MODULE_3__, _timeline__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -2379,39 +2455,7 @@ function Timelines(props) {
     // constants
     //
     const { onSelectTable  } = props;
-    const loader = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
     const { timelines ={} , fetchNextPage , hasNextPage , isFetchingNextPage  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_context__WEBPACK_IMPORTED_MODULE_2__/* .RestaurantReservationsContext */ .R);
-    //
-    // effects
-    //
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        const observer = new IntersectionObserver((entries)=>{
-            let timeoutId;
-            if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
-                timeoutId = setTimeout(()=>fetchNextPage(), 1000);
-            }
-            // Limpiamos el timeout en caso de cambiar de pantalla, esto evitar errores de renderin con eventos asincronicos
-            return ()=>{
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                }
-            };
-        }, {
-            threshold: 1.0
-        });
-        if (loader.current) {
-            observer.observe(loader.current);
-        }
-        return ()=>{
-            if (loader.current) {
-                observer.unobserve(loader.current);
-            }
-        };
-    }, [
-        fetchNextPage,
-        hasNextPage,
-        isFetchingNextPage
-    ]);
     //
     // render
     //
@@ -2427,19 +2471,18 @@ function Timelines(props) {
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ol", {
                         className: "restaurant-reservations-timelines-entries",
-                        children: Object.keys(timelines).map((date, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_timeline__WEBPACK_IMPORTED_MODULE_3__/* .Timeline */ .T, {
+                        children: Object.keys(timelines).map((date, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_timeline__WEBPACK_IMPORTED_MODULE_4__/* .Timeline */ .T, {
                                 date: date,
                                 timeline: timelines[date],
                                 onSelectTable: onSelectTable
                             }, i))
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        ref: loader,
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_components__WEBPACK_IMPORTED_MODULE_3__/* .InfiniteScroll */ .v_, {
                         className: "restaurant-reservations-timelines-loader-container",
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: "restaurant-reservations-timelines-loader",
-                            children: "cargando..."
-                        })
+                        classNameText: "restaurant-reservations-timelines-loader",
+                        fetchNextPage: fetchNextPage,
+                        hasNextPage: hasNextPage,
+                        isFetchingNextPage: isFetchingNextPage
                     })
                 ]
             })
@@ -2886,7 +2929,7 @@ var external_lodash_ = __webpack_require__(6517);
 // constants
 //
 const isServer = "undefined" === "undefined";
-const prefix = "laika-";
+const prefix = "restaurants-";
 //
 // helpers
 //
@@ -3086,7 +3129,7 @@ class Api {
         }
         // // Set headers parameters if necesary
         options.headers = options.headers || {};
-        options.headers["x-laika-env"] = env;
+        options.headers["x-restaurants-env"] = env;
         // Merge options with default options
         return (0,external_lodash_.defaultsDeep)({}, options, defaultOptions);
     }

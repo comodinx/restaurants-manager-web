@@ -5,3 +5,4 @@ export * from "./states";
 export * from "./layout";
 export * from "./buttons";
 export * from "./indicator";
+export * from "./infiniteScroll";

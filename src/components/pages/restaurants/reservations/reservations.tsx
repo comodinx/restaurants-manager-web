@@ -1,11 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
-import { LayoutHeader, LayoutFooter, StateLoading, StateError, Error404 } from "@app/components";
+import { LayoutHeader, LayoutFooter, StateLoading, Error404 } from "@app/components";
 import { fetcher, isInteger } from "@app/helpers";
 import { useRestaurantReservations } from "./hooks";
 import { RestaurantReservationsContext } from "./context";
 import { Timelines, Form, Drawer } from "./components";
-import { restaurants } from "@app/constants/restaurants";
 
 //
 // interfaces

@@ -154,7 +154,7 @@ class Api {
 
     // // Set headers parameters if necesary
     options.headers = options.headers || {};
-    options.headers["x-laika-env"] = env;
+    options.headers["x-restaurants-env"] = env;
 
     // Merge options with default options
     return defaultsDeep({}, options, defaultOptions);
