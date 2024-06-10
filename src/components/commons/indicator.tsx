@@ -23,7 +23,7 @@ export function Indicator(props: IndicatorProperties) {
           bg-green-100 bg-green-500 text-green-800
           bg-violet-100 bg-violet-500 text-violet-800
       */}
-      <span className={`indicator-container bg-${variant}-100 text-${variant}-800`}>
+      <span className={`indicator bg-${variant}-100 text-${variant}-800`}>
         <span className={`indicator-icon bg-${variant}-500`}></span>
         {text}
       </span>

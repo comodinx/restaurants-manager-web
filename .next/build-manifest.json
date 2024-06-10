@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/bkTTJO8qzezO1_kkzTN-_/_buildManifest.js",
-    "static/bkTTJO8qzezO1_kkzTN-_/_ssgManifest.js"
+    "static/OlAB_cww4LPtmRG6KQ0cz/_buildManifest.js",
+    "static/OlAB_cww4LPtmRG6KQ0cz/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -16,7 +16,7 @@
       "static/chunks/main-7477d36a73a3487c.js",
       "static/chunks/29107295-661baa9a9eae34db.js",
       "static/chunks/44-fc347533c169a124.js",
-      "static/chunks/854-d5eaedc6af0a8c76.js",
+      "static/chunks/854-115eb7542c7625d8.js",
       "static/chunks/pages/index-f16d9d62fbdd80b4.js"
     ],
     "/404": [
@@ -25,7 +25,7 @@
       "static/chunks/main-7477d36a73a3487c.js",
       "static/chunks/29107295-661baa9a9eae34db.js",
       "static/chunks/44-fc347533c169a124.js",
-      "static/chunks/854-d5eaedc6af0a8c76.js",
+      "static/chunks/854-115eb7542c7625d8.js",
       "static/chunks/pages/404-d6c0571b60e5e883.js"
     ],
     "/_app": [
@@ -47,7 +47,7 @@
       "static/chunks/main-7477d36a73a3487c.js",
       "static/chunks/29107295-661baa9a9eae34db.js",
       "static/chunks/44-fc347533c169a124.js",
-      "static/chunks/854-d5eaedc6af0a8c76.js",
+      "static/chunks/854-115eb7542c7625d8.js",
       "static/chunks/pages/restaurants/[id]-1d97b1cb7aa19959.js"
     ]
   },

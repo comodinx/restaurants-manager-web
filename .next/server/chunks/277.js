@@ -885,7 +885,7 @@ function Indicator(props) {
     const { text , variant ="green"  } = props;
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-            className: `indicator-container bg-${variant}-100 text-${variant}-800`,
+            className: `indicator bg-${variant}-100 text-${variant}-800`,
             children: [
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                     className: `indicator-icon bg-${variant}-500`
